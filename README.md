@@ -5,6 +5,7 @@ version 1.0.0
 
 Simply vanilla JS-based text adventure engine.
 Russian language only.
+ES6-compatible browsers only
 
 [DEMO GAME](https://eidolonzx.github.io/quazatron-adventure/)
 
