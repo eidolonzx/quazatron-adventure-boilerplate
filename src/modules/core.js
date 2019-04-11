@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/extensions */
 import objects from '../gamedata/objects.js';
@@ -218,14 +219,19 @@ const processInput = (userInput) => {
   let gameFlag = GAME_STATES.game;
 
   // Если это глагол "СОХРАНИТЬ" или "ЗАГРУЗИТЬ"
-  if (verbId === 14) return {
-    answer: saveGameState(number),
-    gameFlag,
-  };
-  if (verbId === 15) return {
-    answer: loadGameState(number),
-    gameFlag,
-  };
+  if (verbId === 14) {
+    return {
+      answer: saveGameState(number),
+      gameFlag,
+    };
+  }
+
+  if (verbId === 15) {
+    return {
+      answer: loadGameState(number),
+      gameFlag,
+    };
+  }
 
   // Обрабатываем особые игровые ситуации.
   if (uniqueEncounter.flag) {
@@ -235,10 +241,13 @@ const processInput = (userInput) => {
     };
   }
   // Выдаём игроку сообщение об ошибке, если парсер выдал сообщение об ошибке
-  if (answer) return {
-    answer,
-    gameFlag,
-  };
+  if (answer) {
+    return {
+      answer,
+      gameFlag,
+    };
+  }
+
   // Дефолтное значение answer на случай, если программа не понимает введённый игроком глагол
   answer = defaultTexts.defaultAnswer;
   // Прокручиваем все нужные счётчики
@@ -279,6 +288,7 @@ const processInput = (userInput) => {
       break;
     case 13:
       // Инвентарь
+      // eslint-disable-next-line max-len
       answer = Inventory.getItemsString(Inventory.getAll(), defaultTexts.playerHasItems, defaultTexts.playerHasNoItems);
       break;
     case 16:

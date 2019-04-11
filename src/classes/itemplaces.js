@@ -44,15 +44,7 @@ const ItemPlaces = {
 
   getLocationItemsArray(locationId) {
     if (isNumber(locationId) && locations[locationId]) {
-      const itemsArray = [];
-
-      for (let key in this._itemPlaces) {
-        if (this._itemPlaces[key] === locationId) {
-          itemsArray.push(key);
-        };
-      }
-
-      return itemsArray;
+      return Object.keys(this._itemPlaces).filter(key => this._itemPlaces[key] === locationId);
     }
     log(`ItemPlaces.getLocationItemsArray: передаётся некорректный ID локации: ${locationId}.`);
     return -1;

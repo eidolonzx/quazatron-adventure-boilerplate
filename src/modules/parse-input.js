@@ -33,7 +33,7 @@ const findWordId = (type, word) => {
 // Ищем id объектов, в массиве forms которых встречается слово word.
 // Возвращаем массив этих id или -1, если не нашли ничего
 const findObjectsByWord = (word) => {
-  let words = [];
+  const words = [];
 
   objects.forEach((e) => {
     if (e.forms.includes(word)) {
@@ -59,7 +59,7 @@ const isAdjective = (word) => {
 };
 
 // Основная функция парсера. На входе - строка, введённая игроком.
-// На выходе объект, содержащий id глагола и двух существительных, которые ввёл игрок, и сервисное сообщение
+// На выходе объект, содержащий id глагола и существительных из ввода игрока, и сервисное сообщение
 const parseInput = (input) => {
   let isFirstItem = true;
   let verb = -1;
@@ -133,7 +133,7 @@ const parseInput = (input) => {
     // То есть, форма "монета" есть у "серебряной монеты" id=11 и "медной монеты" id=12,
     // и парсер всегда возвращал id=11, а до id=12 не добирался.
 
-    // Поэтому, когда парсер видит слово "монета", он выдаёт массив, 
+    // Поэтому, когда парсер видит слово "монета", он выдаёт массив,
     // содержащий id и той, и другой монет.
     // А дальше уже перебором по массиву мы определяем, о какой конкретно монете идёт речь.
     const wordIds = findObjectsByWord(words[i]);
@@ -144,7 +144,7 @@ const parseInput = (input) => {
 
       // Если у нас всего один id в массиве, значит, он и будет currentObjectId
       if (wordIds.length === 1) {
-        currentObjectId = wordIds[0];
+        [currentObjectId] = wordIds;
       } else {
         // А если несколько, то прогоняем цикл по массиву для определения
         // правильного currentObjectId
@@ -213,7 +213,7 @@ const parseInput = (input) => {
       // Если парсер не понимает слово
 
       // Если это цифра, то записываем её в number (для последующего использования)
-      const number = isNaN(words[i]) ? -1 : parseInt(words[i]);
+      const number = isNaN(words[i]) ? -1 : parseInt(words[i], 10);
 
       if (!wordsToIgnore.includes(words[i]) && !isAdjective(words[i])) {
         const errMessage = `${defaultTexts.parserDontUnderstandWord} "${words[i]}".`;

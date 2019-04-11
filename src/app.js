@@ -30,10 +30,10 @@ import {
 import processInput from './modules/core.js';
 import parseInput from './modules/parse-input.js';
 
-import Inventory from './classes/inventory.js'
-import CurrentLocation from './classes/location.js'
-import Flags from './classes/flags.js'
-import ItemPlaces from './classes/itemplaces.js'
+import Inventory from './classes/inventory.js';
+import CurrentLocation from './classes/location.js';
+import Flags from './classes/flags.js';
+import ItemPlaces from './classes/itemplaces.js';
 import Counters from './classes/counters.js';
 import GameTurns from './classes/turns.js';
 import Command from './classes/command.js';
@@ -55,7 +55,6 @@ import Command from './classes/command.js';
 
   // Реакция программы на ввод игрока
   const handleEnter = () => {
-
     // Реакция на нажатие клавиши ENTER игроком в зависимости от того, на каком экране он находится
     switch (gameState) {
       case GAME_STATES.start:
