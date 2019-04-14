@@ -15,19 +15,31 @@ import {
 const encounters = {
   // Добавляем дополнительную информацию к описанию локации в зависимости от различных условий
   addDescription() {
+    let encounter;
+
     /*
     const currentLocation = CurrentLocation.get();
-    let encounter;
+
     switch (currentLocation) {
         case 7:
             if (!Flags.get("isTrollKilled")) encounter = 'Путь на восток преграждает толстый !*тролль*!.';
             break;
     }
+    */
     if (encounter) {
         return `<p>${encounter}</p>`;
     }
-    */
     return '';
+  },
+
+  addInfoToInventory() {
+    let info = '';
+
+    /*
+    Добавьте свой код, который будет выводится по команде "И" после перечисления предметов в инвентаре.
+    */
+
+    return info;
   },
 
   // Прокручиваем все заданные игрой счётчики
@@ -41,7 +53,6 @@ const encounters = {
   checkPlayerObstacles(direction) {
     /*
     const currentLocation = CurrentLocation.get();
-
     if (currentLocation === 7 && !Flags.get("isTrollKilled") && direction === 'e') {
         return "Тролль рычит и не даёт мне пройти.";
     }
@@ -106,14 +117,16 @@ const encounters = {
       }
       return answer;
     }
+    /*
+    Добавьте свой код, если нужно
+    */
 
     return 'Вы не можете это сделать.';
   },
 
   drop(objectIds) {
-    // Положить всё (id объекта "всё" = 28)
-    /*
-    if (objectIds.includes(28)) {
+    // Положить всё (id объекта "всё" = 0)
+    if (objectIds.includes(0)) {
         // Проверяем, есть ли предметы в локации
         const itemsArray = Inventory.getAll();
         const answer = Inventory.getItemsString(itemsArray, defaultTexts.playerDropItems, defaultTexts.playerHasNoItems);
@@ -125,6 +138,8 @@ const encounters = {
         };
         return answer;
     }
+    /*
+    Добавьте свой код, если нужно
     */
 
     return defaultTexts.playerUselessAction;

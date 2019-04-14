@@ -250,8 +250,7 @@ const processInput = (userInput) => {
 
   // Дефолтное значение answer на случай, если программа не понимает введённый игроком глагол
   answer = defaultTexts.defaultAnswer;
-  // Прокручиваем все нужные счётчики
-  encounters.setCounters();
+
   // Обрабатываем команду игрока (по глаголу)
   // Если это глагол перемещения
   switch (verbId) {
@@ -290,6 +289,7 @@ const processInput = (userInput) => {
       // Инвентарь
       // eslint-disable-next-line max-len
       answer = Inventory.getItemsString(Inventory.getAll(), defaultTexts.playerHasItems, defaultTexts.playerHasNoItems);
+      answer += encounters.addInfoToInventory();
       break;
     case 16:
       // Отменить действие
@@ -317,6 +317,9 @@ const processInput = (userInput) => {
       GameTurns.save();
       break;
   }
+
+  // Прокручиваем все нужные счётчики
+  encounters.setCounters();
 
   // Проверяем, победил или проиграл ли игрок?
   if (Flags.get('isVictory')) {
