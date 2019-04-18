@@ -7,14 +7,16 @@ Simply vanilla JS-based text adventure engine.
 Russian language only.
 ES6-compatible browsers only
 
-[DEMO GAME](https://eidolonzx.github.io/quazatron-adventure/)
+Quazatron Adventure - простой движок на JavaScript, позволяющий создавать парсерные текстовые игры для браузера.
 
-Later I'll write some docs for it.
+Данный репозиторий является заготовкой, поверх которой можно программировать игровую логику.
 
-This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
+Демо-игра: [игра](https://eidolonzx.github.io/quazatron-adventure/), [репозиторий](https://github.com/eidolonzx/quazatron-adventure)
+
+[Руководство игрока](./manual/players-guide.md)
+
+[Руководство разработчика](./manual/developer-guide.md)
 
 ---
 
-**Это заготовка, которую можно взять за основу при написании своего текстового приключения.**
-
-Документация на движок Quazatron Adventure находится в процессе написания.
+This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
